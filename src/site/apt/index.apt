@@ -1,0 +1,68 @@
+ -----
+ OpenJGraph
+ ----- 
+ Arnaud Bailly
+ -----
+ 3 December 2005
+ -----
+ 
+Introduction 
+
+  <<OpenJGraph>> is another  general purpose graph library that allows
+  one to create, manipulate and visualize graphs with various
+  structures. It was initially developped by Jesus M. Salvo as a
+  {{{http://openjgraph.sourceforge.net/} SourceForge project}} but the
+  project seems to be dead since 2003 and I could not get in touch with
+  M.Salvo, so I took over development of the library. 
+
+  There exists a lot of different graph libraries as can be seen 
+  {{{http://networkviz.sourceforge.net/} here}}, with different
+  strengths and weaknesses. At the time I needed a graph library in
+  Java, I found OpenJGraph to be quite usable and to contain the
+  features I needed: easy extensibility, quite complete UI, simple
+  design. I tried JGraph but wasn't convinced (and still am not ...)  by
+  the <JTree extension> approach. 
+
+Features
+
+  At present time, OpenJGraph supports the following features: 
+   
+  * different graph structures: plain, directed, weighted,
+  trees, acyclic,
+   
+  * various classical algorithms: Tarjan's strong connected components
+  calculation, Dijkstra's  shortest path, various traversals, matrices
+  representation and computations, topological sorting, graph morphisms,
+
+  * a subclass of JPanel for visualization and manipulation of graph,
+  various UI classes (toolbar, scrollpanel), zooming, customizable
+  vertices and egdes painters,
+
+  * manual and automatic layout: Sugiyama (ie. layered layout using dominance),
+  spring/simulated annealing, orthogonal routing,
+
+  * export to EPS (using {{{http://www.jibble.org/} Paul Mutton}}'s
+  EPSGraphics2D class) and all graphics format supported by host Java
+  installation, support for printing.
+
+Caveats
+
+* Performance 
+
+  OpenJGraph is not meant to be used for large graphs as it is not very
+  thrifty with memory: Visualizing a graph duplicates its structure as
+  there is VisualVertex for each Vertex ! And the layout algorithms perform
+  quite good on several hundred vertices but will choke rapidly on
+  larger graphs.
+
+* UI
+
+  The GraphPanel works quite well (after lot of rework to put up to JDK
+  1.4 standards) but there are some issues with the
+  panel's size and its interaction with scrollbars that may clip the
+  layout.
+
+* Design
+
+  Basic API is too bloated: There are too much methods in base Graph
+  interface.
